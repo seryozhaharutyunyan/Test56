@@ -42,22 +42,20 @@ export default {
                 name: [''],
                 pone: [''],
                 appeal: [''],
-            }
+            };
 
-            console.log(this.url);
-
-            axios.post(this.url+"store", {
+            axios.post(`${this.url}store`, {
                 name: this.name,
                 pone: this.pone,
                 appeal: this.appeal,
-            }).then(()=>{
-               this.name='';
-               this.pone='';
-               this.appeal='';
-            }).catch(error=>{
+            }).then(() => {
+                this.name = '';
+                this.pone = '';
+                this.appeal = '';
+            }).catch(error => {
                 console.log(error)
-                if(error.response.data.errors){
-                    this.error=Object.assign(this.error, error.response.data.errors)
+                if (error.response.data.errors) {
+                    this.error = Object.assign(this.error, error.response.data.errors)
                 }
             })
         }

@@ -9,12 +9,12 @@
                 Email
             </option>
         </select>
-        <div class="text-danger text-center">{{ error.name[0]}}</div>
+        <div class="text-danger text-center">{{ error.name[0] }}</div>
         <input class="form-control m-3 p-3 " v-if="name==='database'" type="text" v-model="database"
                placeholder="Database name/Table name">
-        <div class="text-danger text-center">{{ error.database[0]}}</div>
+        <div class="text-danger text-center">{{ error.database[0] }}</div>
         <input class="form-control m-3 p-3 " v-if="name==='email'" type="email" v-model="email" placeholder="Email">
-        <div class="text-danger text-center">{{ error.email[0]}}</div>
+        <div class="text-danger text-center">{{ error.email[0] }}</div>
         <div class="m-auto">
             <button class="btn-info btn m-3 p-3" @click="send()">Send</button>
         </div>
@@ -59,14 +59,14 @@ export default {
                 name: this.name,
                 database: this.database,
                 email: this.email,
-            }).then(()=>{
-                this.name='';
-                this.database='';
-                this.email='';
-            }).catch(error=>{
+            }).then(() => {
+                this.name = '';
+                this.database = '';
+                this.email = '';
+            }).catch(error => {
                 console.log(error);
-                if(error.response.data.errors){
-                    this.error=Object.assign(this.error, error.response.data.errors);
+                if (error.response.data.errors) {
+                    this.error = Object.assign(this.error, error.response.data.errors);
                 }
             })
         }

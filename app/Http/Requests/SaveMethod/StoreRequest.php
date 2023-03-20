@@ -24,9 +24,9 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"=>"required|string",
-            "email"=>"nullable|string|email",
-            "database"=>"nullable|string|regex:/.+\/.+/|min:3"
+            "name" => "required|string",
+            "email" => "nullable|string|email",
+            "database" => "nullable|string|regex:/.+\/.+/|min:3"
         ];
     }
 }
