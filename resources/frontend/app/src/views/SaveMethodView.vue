@@ -41,6 +41,12 @@ export default {
         }
     },
 
+    computed: {
+        url() {
+            return this.$store.getters.getUrl;
+        }
+    },
+
     methods: {
         send() {
             this.error = {
@@ -49,7 +55,7 @@ export default {
                 email: [''],
             };
 
-            axios.post('http://localhost/api/method/store', {
+            axios.post(`${this.url}/method/store`, {
                 name: this.name,
                 database: this.database,
                 email: this.email,

@@ -30,6 +30,12 @@ export default {
         }
     },
 
+    computed: {
+        url() {
+            return this.$store.getters.getUrl;
+        }
+    },
+
     methods: {
         send() {
             this.error = {
@@ -38,16 +44,18 @@ export default {
                 appeal: [''],
             }
 
-            axios.post('http://localhost/api/store', {
+            console.log(this.url);
+
+            axios.post(this.url+"store", {
                 name: this.name,
                 pone: this.pone,
                 appeal: this.appeal,
-            }).then((r)=>{
-               //this.name='';
-               //this.pone='';
-               //this.appeal='';
-                console.log(r);
+            }).then(()=>{
+               this.name='';
+               this.pone='';
+               this.appeal='';
             }).catch(error=>{
+                console.log(error)
                 if(error.response.data.errors){
                     this.error=Object.assign(this.error, error.response.data.errors)
                 }

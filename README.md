@@ -20,4 +20,4 @@ laravel version 9.52.4
 
 ------------------------------------------------------------------------------------------------------------------------
 
-localhost should be changed to your host
+you need to change localhost in vue store to your host
